@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #FAF8F5;
+    --foreground: #1E293B;
+    --card: #FFFFFF;
+    --card-foreground: #1E293B;
+    --primary: #E05A1B;
+    --primary-hover: #C2410C;
+    --primary-foreground: #FFFFFF;
+    --secondary: #FEF3C7;
+    --secondary-foreground: #92400E;
+    --accent-gold: #D97706;
+    --maroon: #7F1D1D;
+    --maroon-dark: #450A0A;
+    --border: #E8DFD5;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Indian Festival Subtle Decorative Background & Elements */
+.bg-festival-pattern {
+  background-color: #FAF8F5;
+  background-image: radial-gradient(#EA580C 0.65px, transparent 0.65px), radial-gradient(#D97706 0.65px, #FAF8F5 0.65px);
+  background-size: 26px 26px;
+  background-position: 0 0, 13px 13px;
+  background-opacity: 0.05;
+}
+
+.festival-gold-gradient {
+  background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 50%, #FDE68A 100%);
+}
+
+.festival-saffron-gradient {
+  background: linear-gradient(135deg, #EA580C 0%, #D97706 100%);
+}
+
+.festival-maroon-gradient {
+  background: linear-gradient(135deg, #7F1D1D 0%, #450A0A 100%);
+}
+
+.glass-header {
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(232, 223, 213, 0.8);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Print Styles for Digital Receipt */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-receipt, #printable-receipt * {
+    visibility: visible;
+  }
+  #printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
 }
